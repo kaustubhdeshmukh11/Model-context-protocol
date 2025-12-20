@@ -38,7 +38,7 @@ async def main():
     })
     # The agent now has access to 'add_expense', 'summarize', etc.
     await client.get_tools()
-    '''
+    
     
 - Option B: Claude Desktop Config Add this to your claude_desktop_config.json:
 '''
