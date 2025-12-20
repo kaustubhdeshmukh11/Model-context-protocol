@@ -3,9 +3,9 @@
 -A modular AI infrastructure designed to decouple tool execution from LLM logic. This project implements the Model Context Protocol (MCP) standard to serve an asynchronous, remote tool server compatible with any MCP-compliant agent (Claude Desktop, LangChain).
 
 🚀 Key Highlights
-Remote Tool Serving: Deployed a persistent "Expense Tracker" tool server on fastmcp.cloud, enabling agents to access tools via standard SSE (Server-Sent Events) transport.
+- Remote Tool Serving: Deployed a persistent "Expense Tracker" tool server on fastmcp.cloud, enabling agents to access tools via standard SSE (Server-Sent Events) transport.
 
-Universal Compatibility: The server is instantly consumable by Claude Desktop, and custom LangChain clients without code changes.
+- Universal Compatibility: The server is instantly consumable by Claude Desktop, and custom LangChain clients without code changes.
 
 
 🛠️ Tech Stack
@@ -13,7 +13,7 @@ Core Standard: Model Context Protocol (MCP)
 
 Frameworks: FastMCP, LangChain, AsyncIO
 
-Database: SQLite (WAL Mode) with aiosqlite
+Database: SQLite 
 
 Deployment: fastmcp.cloud
 
