@@ -1,4 +1,4 @@
-#🔌 Remote Model Context Protocol (MCP) Infrastructure
+## Remote Model Context Protocol (MCP) Infrastructure
 
 -A modular AI infrastructure designed to decouple tool execution from LLM logic. This project implements the Model Context Protocol (MCP) standard to serve an asynchronous, remote tool server compatible with any MCP-compliant agent (Claude Desktop, LangChain).
 
@@ -18,29 +18,14 @@ Database: SQLite (WAL Mode) with aiosqlite
 Deployment: fastmcp.cloud
 
 🧩 System Architecture
-Code snippet
+<img width="1135" height="482" alt="image" src="https://github.com/user-attachments/assets/842b9b3e-1585-4177-9590-d1c30471f337" />
 
-graph LR
-    A[AI Agent / LLM] <-->|MCP Protocol (SSE)| B[Remote MCP Server]
-    B <-->|Async I/O| C[SQLite Database]
-    style B fill:#f9f,stroke:#333
-⚡ Quick Start
-1. The Server (Expense Tracker)
-The server code defines tools for adding, listing, and summarizing expenses.
 
-Bash
+## You can connect to this server using any MCP-compliant client.
 
-# Run locally for testing
-fastmcp run server.py
+- Option A: Custom LangChain Client (Python)
 
-# Deploy to cloud
-fastmcp deploy server.py
-2. The Client (Universal)
-You can connect to this server using any MCP-compliant client.
-
-Option A: Custom LangChain Client (Python)
-
-Python
+'''Python
 
 from langchain_mcp_adapters.client import MultiServerMCPClient
 
@@ -48,20 +33,23 @@ async def main():
     client = MultiServerMCPClient({
         "ExpenseTracker": {
             "transport": "sse",
-            "url": "https://your-app.fastmcp.app/mcp"
+            "url": "[https://your-app.fastmcp.app/mcp](https://kaustubh-mcp.fastmcp.app/mcp)"
         }
     })
     # The agent now has access to 'add_expense', 'summarize', etc.
     await client.get_tools()
-Option B: Claude Desktop Config Add this to your claude_desktop_config.json:
-
+    '''
+    
+- Option B: Claude Desktop Config Add this to your claude_desktop_config.json:
+'''
 JSON
 
 {
   "mcpServers": {
     "finance-tools": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sse-client", "https://your-app.fastmcp.app/mcp"]
+      "args": ["-y", "@modelcontextprotocol/server-sse-client", "[https://your-app.fastmcp.app/mcp](https://kaustubh-mcp.fastmcp.app/mcp)"]
     }
   }
 }
+'''
